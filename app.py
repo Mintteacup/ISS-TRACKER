@@ -1,5 +1,6 @@
 # Imports
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
+import requests
 
 # App
 app = Flask(__name__)
@@ -8,5 +9,5 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-if __name__ in "__main__":
+if __name__ == "__main__":
     app.run(debug=True)

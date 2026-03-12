@@ -14,7 +14,11 @@ function update() {
     const lat = data.lat;
     const lon = data.lon;
     console.log(lat, lon)
-    L.marker([lat, lon]).bindPopup("ISS Location <br>Lat: " + lat + "<br>Lon: " + lon).openPopup().addTo(map); // puts a leaflet marker where the iss is
+    L.marker([lat, lon]).bindPopup(
+      "<b>ISS Location</b><br>" +
+      "Lat: " + lat.toFixed(4) + "<br>" +
+      "Lon: " + lon.toFixed(4)
+    ).openPopup().addTo(map); // puts a leaflet marker where the iss is
 
     map.setView([lat, lon], 4); // centers the map on the ISS
   });

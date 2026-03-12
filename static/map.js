@@ -37,7 +37,7 @@ function update() {
       .openPopup()
       .addTo(map); // puts a leaflet marker where the iss is
 
-    map.setView([lat, lon], 4); // centers the map on the ISS
+    map.setView([lat, lon]); // centers the map on the ISS
   });
 }
 

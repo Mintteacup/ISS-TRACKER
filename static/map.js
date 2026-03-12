@@ -5,10 +5,19 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { // pulls map ima
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map); // attaches image to map
 
-fetch("/iss-location") // calls the flask back end
+setInterval(update, 5000); // 5 seconds
+
+function update() {
+  fetch("/iss-location") // calls the flask back end
   .then(response => response.json()) //parses the json response
   .then(data => { 
     const lat = data.lat;
     const lon = data.lon;
+    console.log(lat, lon)
     L.marker([lat, lon]).addTo(map); // puts a leaflet marker where the iss is
+
+    map.setView([lat, lon], 4); // centers the map on the ISS
   });
+}
+
+

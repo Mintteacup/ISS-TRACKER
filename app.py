@@ -12,12 +12,12 @@ def index():
 @app.route("/iss-location")
 def iss_location():
     
-    response = requests.get("http://api.open-notify.org/iss-now.json")
+    response = requests.get("https://api.wheretheiss.at/v1/satellites/25544")
     
     data = response.json()
     
-    lat = float(data["iss_position"]["latitude"])
-    lon = float(data["iss_position"]["longitude"])
+    lat = float(data["latitude"])
+    lon = float(data["longitude"])
 
     return jsonify({"lat": lat, "lon": lon})
 
